@@ -7,19 +7,6 @@ let client = new AkairoClient({partials: ['GUILD_MEMBER']},{
         ],
       });
 client.config = require('./config')
-const sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: '.data/db.sqlite',
-    logging: false
-});
-const invites = sequelize.define('invite', {
-    discordUser: Sequelize.STRING,
-    inviter: Sequelize.STRING,
-    invites: Sequelize.NUMBER,
-    guildID: Sequelize.STRING
-});
-invites.sync();
-client.invites = invites;
 const guildInvites = new Map();
 client.guildInvites = guildInvites;
 const logs = require ( "discord-logs" );
@@ -445,9 +432,9 @@ client.on('message', async (message) => {
     //let f =////tontondb.get("1toplamsessayisi:767787822081507381")
     
     //console.log(f)
-    let mesaj = ////tontondb.all ().filter ( x => x.ID.startsWith ( `totalMessage` ) ).sort ( function ( a , b ) {
-        return b.data - a.data
-    } )
+    //let mesaj = ////tontondb.all ().filter ( x => x.ID.startsWith ( `totalMessage` ) ).sort ( function ( a , b ) {
+    //    return b.data - a.data
+    //} )
     mesaj.length=10
 
     console.log(mesaj)
@@ -1899,7 +1886,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember) => { //Sağ tık Rol
 
 //-------------------------------------- TOKEN KISIMI -----------------------------\\
 
-const TOKEN = process.env['TOKEN']
+const TOKEN = process.env.TOKEN
 const keepAlive = require("./server");
 keepAlive();
 
